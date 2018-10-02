@@ -218,7 +218,7 @@ class Calendar extends React.Component {
 Calendar.propTypes = {
 	selectedDateRange: PropTypes.object,
 	restrictionRange: PropTypes.object,
-	direction: React.PropTypes.oneOf(['top', 'left', 'right', 'bottom']).isRequired,
+	direction: PropTypes.oneOf(['top', 'left', 'right', 'bottom']).isRequired,
 	display: PropTypes.bool.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	onApply: PropTypes.func.isRequired,
