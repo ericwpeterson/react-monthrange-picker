@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'proptypes';
 
 const Picker = function Picker(props) {
 	const startDate = props.selectedDateRange.start;
@@ -33,8 +34,8 @@ const Picker = function Picker(props) {
 };
 
 Picker.propTypes = {
-	//selectedDateRange: CustomPropTypes.MomentRangeType.isRequired
-	//onClick: React.PropTypes.func.isRequired,
+	selectedDateRange: PropTypes.object,
+	onClick: PropTypes.func.isRequired
 };
 
 export default Picker;

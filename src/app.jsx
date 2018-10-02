@@ -88,6 +88,8 @@ class App extends React.Component {
 					position={this.props.position}
 					oneYear={this.props.oneYear}
 					modalButtonsContainerClass={this.props.modalButtonsContainerClass}
+					modalButtonContainerCancelClass={this.props.modalButtonContainerCancelClass}
+					modalButtonContainerApplyClass={this.props.modalButtonContainerApplyClass}
 				/>
 			</div>
 		);
@@ -96,27 +98,28 @@ class App extends React.Component {
 
 App.propTypes = {
 	selectedDateRange: PropTypes.object,
-	restrictionRange: PropTypes.object
-	//selectedDateRange: CustomPropTypes.MomentRangeType,
-	//restrictionRange: CustomPropTypes.MomentRangeType
-	//onYearChange: React.PropTypes.func,
-	//onRender: React.PropTypes.func, // called after the initial render of the
-	//onSelect: React.PropTypes.func,
-	//onApply: React.PropTypes.func,
-	//onCancel: React.PropTypes.func,
-	//display: React.PropTypes.bool,
-	//direction: React.PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
-	//position: React.PropTypes.shape({
-	//  top: React.PropTypes.number,
-	//  left: React.PropTypes.number,
-	//}),
+	restrictionRange: PropTypes.object,
+	onYearChange: PropTypes.func,
+	onRender: PropTypes.func,
+	onSelect: PropTypes.func,
+	onApply: PropTypes.func,
+	onCancel: PropTypes.func,
+	display: PropTypes.bool,
+	direction: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+	position: PropTypes.shape({
+		top: PropTypes.number,
+		left: PropTypes.number
+	}),
+	oneYear: PropTypes.bool,
+	modalButtonsContainerClass: PropTypes.string,
+	modalButtonContainerCancelClass: PropTypes.string,
+	modalButtonContainerApplyClass: PropTypes.string
 };
 
 const date = new Date();
 const startDate = new Date(date.getFullYear(), 0, 1);
 const endDate = startDate;
 
-//const endDate = new Date(date.getFullYear(), 11, 31);
 const minDate = new Date(2000, 0, 1);
 const maxDate = new Date(date.getFullYear() + 4, 11, 31);
 
@@ -124,7 +127,8 @@ App.defaultProps = {
 	selectedDateRange: moment.range(startDate, endDate),
 	restrictionRange: moment.range(minDate, maxDate),
 	display: false,
-	direction: 'bottom'
+	direction: 'bottom',
+	oneYear: true
 };
 
 export default App;

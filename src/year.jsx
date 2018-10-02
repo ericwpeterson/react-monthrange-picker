@@ -1,6 +1,5 @@
 import React from 'react';
-
-import CustomPropTypes from './utils/custom_prop_types';
+import PropTypes from 'proptypes';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -109,11 +108,11 @@ class YearBase extends React.Component {
 }
 
 YearBase.propTypes = {
-	restrictionRange: CustomPropTypes.MomentRangeType.isRequired,
-	currYear: CustomPropTypes.MomentType.isRequired,
-	selectedDateRange: CustomPropTypes.MomentRangeType.isRequired
-	// onYearChange: React.PropTypes.func,
-	// onSelect: React.PropTypes.func.isRequired,
+	restrictionRange: PropTypes.object,
+	currYear: PropTypes.object,
+	selectedDateRange: PropTypes.object,
+	onYearChange: PropTypes.func,
+	onSelect: PropTypes.func.isRequired
 };
 
 class YearStart extends YearBase {
